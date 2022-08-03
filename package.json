@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "stimulus-validation": "^1.0.1-beta.3"
+  },
+  "devDependencies": {
+    "prettier": "2.6.2"
+  }
+}

@@ -1,0 +1,18 @@
+p style="color: green" = notice
+
+div.grid.grid-cols-4.text-3xl
+  | Employments
+
+div.grid.grid-cols-12.pb-5.pt-5
+  = link_to "New", new_employment_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+
+.grid.grid-cols-12#employments
+  table.table-auto.min-w-full
+    thead.border-b.border.text-left
+      tr
+        th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Employer
+        th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Date Started
+        th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Date employment ended
+    tbody.border.text-center
+      - @employments.each do |employment|
+        = render employment
