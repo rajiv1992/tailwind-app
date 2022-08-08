@@ -1,0 +1,9 @@
+tr.border-b
+  td.px-6.py-4.whitespace-nowrap.text-sm.font-medium.text-gray-900.text-left
+    = employment_history.employer
+  td.px-6.py-4.whitespace-nowrap.text-sm.font-medium.text-gray-900.text-left
+    = employment_history.date_started.strftime('%e-%m-%Y')
+  td.px-6.py-4.whitespace-nowrap.text-sm.font-medium.text-gray-900.text-left
+    = employment_history.date_employment_ended.strftime('%e-%m-%Y')
+  td.px-6.py-4.whitespace-nowrap.text-sm.font-medium.text-gray-900.text-left
+      = link_to "Delete", employment_path(employment_history), data: { "turbo-method": :delete, confirm: 'Are You Sure?' } , class: 'bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' 

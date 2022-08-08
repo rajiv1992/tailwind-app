@@ -1,19 +1,18 @@
 p style="color: green" = notice
 div.grid.grid-cols-4.text-3xl
   | User Data
-div.grid.grid-cols-12.pb-5.pt-5
-  = link_to "New", new_user_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+div.grid.grid-cols-12.pb-5.pt-5.pull-right
+  = link_to "New User", new_user_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
 
-.grid.grid-cols-12#personal_data
-  table.table-auto.min-w-full
-    thead.border-b.border.text-left
-      tr
-        th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left First Name
-        th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Last Name
-        th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Nick Name
-        th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Email
-        th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Phone
-    tbody.border.text-center
-      - @users.each do |user|
-        = render user
-  
+table.table-fixed.hover:table-fixed#personal_data
+  thead.border-b.border.text-left
+    tr
+      th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left First Name
+      th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Last Name
+      th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Nick Name
+      th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Email
+      th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Phone
+      th.text-sm.font-bold.text-gray-900.px-6.py-4.text-left Employments
+  tbody.border.text-center
+    - @users.each do |user|
+      = render user

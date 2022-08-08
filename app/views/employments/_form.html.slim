@@ -8,6 +8,7 @@
         h3.mb-4.text-xl.font-medium.text-gray-900.dark:text-white
           | New Employment
         = form_with(model: @employment, data: { "user-input-validation-target"=>"form", action: "submit->user-input-validation#submitForm" }) do |form|
+          = hidden_field_tag 'emaployment[user_id]', @user.id
           - if @employment.errors.any?
             div style="color: red"
               h2 = "#{pluralize(@employment.errors.count, "error")} prohibited this employment from being saved:"

@@ -2,15 +2,19 @@
 
 class EmploymentsController < ApplicationController
   before_action :set_employment, only: %i[show edit update destroy]
-
+  before_action :set_user
   # GET /employments or /employments.json
   def index
-    @employments = Employment.all
+    if @user.present?
+      @employments = @user.employments
+    else
+      @employments = Employment.all
+    end
   end
 
   # GET /employments/new
   def new
-    @employment = Employment.new
+    @employment = @user.employments.new
   end
 
   # POST /employments or /employments.json
@@ -58,8 +62,12 @@ class EmploymentsController < ApplicationController
     @employment = Employment.find(params[:id])
   end
 
+  def set_user
+    @user = User.find_by(id: params[:user_id])
+  end
+
   # Only allow a list of trusted parameters through.
   def employment_params
-    params.require(:employment).permit(employment_histories_attributes: [:_destroy, :id, :employer, :date_started, :date_employment_ended])
+    params.require(:employment).permit(:user_id, employment_histories_attributes: [:_destroy, :id, :employer, :date_started, :date_employment_ended])
   end
 end
